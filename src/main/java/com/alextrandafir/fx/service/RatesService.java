@@ -12,7 +12,7 @@ public class RatesService {
     @Autowired
     RatesClient ratesClient;
 
-    public String getDailyRate() throws JAXBException {
+    public String getDailyRate()  {
         String dailyRate = ratesClient.getDailyRate();
         return dailyRate;
     }

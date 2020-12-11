@@ -1,23 +1,15 @@
 package com.alextrandafir.fx.config;
 
-import com.alextrandafir.fx.client.RatesClient;
-import com.alextrandafir.fx.ws.CubeType;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.http.converter.xml.Jaxb2CollectionHttpMessageConverter;
 import org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter;
-import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
-import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Configuration
@@ -42,12 +34,5 @@ public class RatesClientConfig {
     public Jaxb2RootElementHttpMessageConverter getJaxb2CollectionHttpMessageConverter() {
         Jaxb2RootElementHttpMessageConverter jaxb2RootElementHttpMessageConverter = new Jaxb2RootElementHttpMessageConverter();
         return jaxb2RootElementHttpMessageConverter;
-    }
-
-    @Bean
-    public Jaxb2Marshaller getJaxb2Marshaller() {
-        Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
-        jaxb2Marshaller.setClassesToBeBound(CubeType.class);
-        return jaxb2Marshaller;
     }
 }
