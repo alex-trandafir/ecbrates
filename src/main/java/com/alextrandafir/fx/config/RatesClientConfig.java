@@ -30,17 +30,8 @@ public class RatesClientConfig {
 
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
-//        return builder.build();
         RestTemplate restTemplate = new RestTemplate();
-
-
         List<HttpMessageConverter<?>> converters = new ArrayList<>();
-//        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-//        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_XML));
-//        converters.add(converter);
-
-//        converters.add(getJaxb2CollectionHttpMessageConverter());
-
         converters.add(new FormHttpMessageConverter());
         converters.add(new StringHttpMessageConverter());
         restTemplate.setMessageConverters(converters);
@@ -49,12 +40,7 @@ public class RatesClientConfig {
 
     @Bean(name = "marshallingJaxb2CollectionHttpMessageConverter")
     public Jaxb2RootElementHttpMessageConverter getJaxb2CollectionHttpMessageConverter() {
-
         Jaxb2RootElementHttpMessageConverter jaxb2RootElementHttpMessageConverter = new Jaxb2RootElementHttpMessageConverter();
-//        jaxb2RootElementHttpMessageConverter.
-//        jaxb2CollectionHttpMessageConverter.set
-//        marshallingHttpMessageConverter.setMarshaller(getJaxb2Marshaller());
-//        marshallingHttpMessageConverter.setUnmarshaller(getJaxb2Marshaller());
         return jaxb2RootElementHttpMessageConverter;
     }
 
@@ -64,20 +50,4 @@ public class RatesClientConfig {
         jaxb2Marshaller.setClassesToBeBound(CubeType.class);
         return jaxb2Marshaller;
     }
-
-//    @Bean
-//    public Jaxb2Marshaller marshaller(){
-//        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-//        marshaller.setContextPath("com.alextrandafir.fx.ws");
-//        return marshaller;
-//    }
-
-//    @Bean
-//    public RatesClient ratesClient(Jaxb2Marshaller marshaller){
-//        RatesClient client = new RatesClient();
-//        client.setDefaultUri("https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml");
-//        client.setMarshaller(marshaller);
-//        client.setUnmarshaller(marshaller);
-//        return client;
-//    }
 }
