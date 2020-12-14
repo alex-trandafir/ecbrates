@@ -1,4 +1,4 @@
-package com.alextrandafir.fx.config;
+package com.alextrandafir.fx.client.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;

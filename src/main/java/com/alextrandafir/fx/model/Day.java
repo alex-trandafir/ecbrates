@@ -1,18 +1,20 @@
 package com.alextrandafir.fx.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @Getter
-public class Day {
+@Builder
+@ToString
+@EqualsAndHashCode
+public class Day implements Serializable {
+
+    private LocalDate date;
     private List<Rate> rates;
 
-    public Day(){
-
-    }
 }
